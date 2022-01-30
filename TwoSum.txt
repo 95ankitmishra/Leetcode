@@ -1,0 +1,56 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+       for (int i = 0; i < nums.length; i++) {
+        for (int j = i + 1; j < nums.length; j++) {
+            if (nums[j] == target - nums[i]) {
+                return new int[] { i, j };
+            }
+        }
+    }
+    throw new IllegalArgumentException("No two sum solution"); 
+    }
+}
+
+---------------------------------------------
+
+
+HashMap<Integer,Integer> indexMap = new HashMap<Integer,Integer>();
+        for(int i = 0; i < numbers.length; i++){
+            Integer requiredNum = (Integer)(target - numbers[i]);
+            if(indexMap.containsKey(requiredNum)){
+                int toReturn[] = {indexMap.get(requiredNum), i};
+                return toReturn;
+            }
+
+            indexMap.put(numbers[i], i);
+        }
+        return null;
+    }
+
+-------------------------------------------------
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int map1=0;
+        for(int i=0;i<nums.length;++i)
+        {
+            map.put(nums[i],i);
+        }
+        int [] result= new int [2];
+        for (int i = 0; i < nums.length; ++i) {
+             map1=target - nums[i];
+            
+            if(map.containsKey(map1)){
+                if(i!=map.get(map1)){
+                result[0]=i;
+                result[1]=map.get(map1);
+                break;
+                }
+        }
+      } 
+        return result;
+   }
+    
+    
+}
