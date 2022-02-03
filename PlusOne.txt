@@ -1,0 +1,44 @@
+class Solution {
+    public int[] plusOne(int[] digits) {
+        int [] arr=new int[digits.length];
+        int carry=0;
+        int k=0;
+        arr[k]=digits[digits.length-1]+1;
+        carry=arr[k]/10;
+        if(arr[k]>9){
+            arr[k]=0;
+        }
+        k++;
+        //System.out.println(carry);
+        for(int i=digits.length-2;i>=0;i--){
+            arr[k]=digits[i]+carry;
+            carry=arr[k]/10;
+            if(arr[k]>9){
+                arr[k]=0;
+            }
+            k++;
+        } 
+        int p=arr.length;
+        int index =0;
+        if(carry==1){
+            ++p;
+            int [] res =new int [p];
+            res[index++]=1;
+            for(int i=arr.length-1;i>=0;--i){
+                res[index++]=arr[i];
+                // System.out.println(arr[i]);
+            }
+            return res;
+        } else {
+            int [] res =new int [p];
+            for(int i=arr.length-1;i>=0;--i){
+                res[index++]=arr[i];
+                // System.out.println(arr[i]);
+            }
+            return res;
+        }
+        
+        //return arr;
+    }
+    
+}
